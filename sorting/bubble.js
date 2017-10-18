@@ -1,7 +1,7 @@
 /**
  * Best case: 0(n)
- * Average case: 0(n2)
- * Worst case: 0(n2)
+ * Average case: 0(n^2)
+ * Worst case: 0(n^2)
  * Space : 0(1)
  **/
 
