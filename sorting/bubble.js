@@ -7,8 +7,7 @@
 
 const col = require("./data").collection;
 
-// Better method
-const method1 = col => {
+const sort = col => {
   const len = col.length;
   let swapped;
 
@@ -26,23 +25,4 @@ const method1 = col => {
   return col;
 };
 
-const method2 = col => {
-  const len = col.length;
-
-  for (let i = len - 1; i >= 0; i--) {
-    for (let j = 1; j <= i; j++) {
-      if (col[j] < col[j - 1]) {
-        const temp = col[j];
-        col[j] = col[j - 1];
-        col[j - 1] = temp;
-      }
-    }
-  }
-
-  return col;
-};
-
-console.log("Unsorted data", col);
-
-console.log("Method 1", method1(col));
-console.log("Method 2", method2(col));
+console.log(sort(col));
