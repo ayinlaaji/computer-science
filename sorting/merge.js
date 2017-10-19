@@ -10,12 +10,12 @@ const col = require("./data").collection;
 
 const stitch = (left, right) => {
   const results = [];
+
   while (left.length > 0 && right.length > 0) {
-    const leftItem = left[0];
-    const rightItem = right[0];
-    const condition = leftItem <= rightItem;
-    results.push(condition ? left.shift() : right.shift());
+    const isLeftItemSmaller = left[0] < right[0];
+    results.push(isLeftItemSmaller ? left.shift() : right.shift());
   }
+
   return results.concat(left.length ? left : right);
 };
 
