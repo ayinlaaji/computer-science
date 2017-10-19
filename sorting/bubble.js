@@ -1,9 +1,9 @@
 /**
  * Name: Bubble Sort
- * Best case: 0(n)
- * Average case: 0(n^2)
- * Worst case: 0(n^2)
- * Space : 0(1)
+ * Best case: 0(n) => Linear
+ * Average case: 0(n^2) => Quadratic
+ * Worst case: 0(n^2) => Quadratic
+ * Space : 0(1) => Constant
  **/
 
 const col = require("./data").collection;
