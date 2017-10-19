@@ -1,4 +1,5 @@
 /**
+ * Name: Bubble Sort
  * Best case: 0(n)
  * Average case: 0(n^2)
  * Worst case: 0(n^2)
