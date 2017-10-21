@@ -10,15 +10,14 @@ const col = require("./data").collection;
 
 const sort = col => {
   const len = col.length;
-
-  for (let i = 1; i < len; i++) {
-    const temp = col[i];
-
-    for (var j = i - 1; j >= 0 && col[j] > temp; j--) {
+  for (let i = 0; i < len; i++) {
+    const pick = col[i];
+    let j = i - 1;
+    while (j >= 0 && pick < col[j]) {
       col[j + 1] = col[j];
+      j = j - 1;
     }
-
-    col[j + 1] = temp;
+    col[j + 1] = pick;
   }
   return col;
 };
