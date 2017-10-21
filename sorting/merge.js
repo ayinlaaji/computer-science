@@ -8,31 +8,26 @@
 
 const col = require("./data").collection;
 
-const stitch = (left, right) => {
-  const results = [];
-
-  while (left.length > 0 && right.length > 0) {
-    const isLeftItemSmaller = left[0] < right[0];
-    results.push(isLeftItemSmaller ? left.shift() : right.shift());
-  }
-
-  return results.concat(left.length ? left : right);
-};
-
 const sort = col => {
-  const len = col.length;
+  const stitch = (left, right) => {
+    let x = [];
 
-  if (len < 2) return col;
+    while (left.length && right.length) {
+      const cond = left[0] < right[0];
+      x.push(cond ? left.shift() : right.shift());
+    }
+    return x.concat(left.length ? left : right);
+  };
 
-  const midpoint = Math.floor(len / 2);
+  const split = col => {
+    if (col.length < 2) return col;
+    const mid = Math.floor(col.length / 2);
+    const left = split(col.slice(0, mid));
+    const right = split(col.slice(mid));
+    return stitch(left, right);
+  };
 
-  const leftHalf = col.slice(0, midpoint);
-  const rightHalf = col.slice(midpoint, len);
-
-  const sortLeft = sort(leftHalf);
-  const sortRight = sort(rightHalf);
-
-  return stitch(sortLeft, sortRight);
+  return split(col);
 };
 
 console.log(sort(col));
